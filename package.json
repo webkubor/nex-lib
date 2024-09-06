@@ -5,6 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "test": "jest",
+    "login":"npm login",
+    "publish":"npm publish",
     "build": "rollup -c"
   },
   "author": "webkubor",
