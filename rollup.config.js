@@ -10,7 +10,7 @@ const aliases = {
   };
 
 export default {
-  input: 'src/index.js',
+  input: 'index.ts',
   output: {
     file: 'dist/web-tools.js',
     format: 'umd',

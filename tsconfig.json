@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
       //...其他配置
+       "target": "es2015",
       "esModuleInterop": true
     }
   }
