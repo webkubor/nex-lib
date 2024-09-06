@@ -1,0 +1,31 @@
+# Compiled output
+/dist
+/out
+
+# Logs
+logs
+*.log
+
+# Dependency directories
+node_modules
+
+# OS generated files
+.DS_Store
+
+# IDE and editor files
+.vscode/
+.idea/
+
+# NPM and Yarn lock files
+package-lock.json
+yarn.lock
+
+# Build temp directories
+tmp
+
+# Coverage reports
+coverage/
+
+# Miscellaneous
+*.swp
+*.swo
