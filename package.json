@@ -13,6 +13,7 @@
   },
   "author": "webkubor",
   "license": "ISC",
+  "keywords": ["webkubor","nex-lib", "tools", "url", "utils"],
   "devDependencies": {
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
