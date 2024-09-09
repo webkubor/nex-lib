@@ -1,4 +1,4 @@
-import WURL from '../src/URL';
+import WURL from '../src/CustomURL';
 
 describe('URL class', () => {
   it('should get main domain correctly', () => {

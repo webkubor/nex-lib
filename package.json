@@ -10,7 +10,6 @@
     "build": "rollup -c"
   },
   "author": "webkubor",
-  "type": "module",
   "license": "ISC",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^26.0.1",

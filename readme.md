@@ -25,3 +25,9 @@ npm install web-tools
      },
    };
 ```
+
+
+## 移除 npm 包
+```
+npm unpublish Defipay-Sdk  --force
+```
