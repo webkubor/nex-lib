@@ -1,6 +1,6 @@
 {
   "name": "nex-lib",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "前端业务中常用的业务工具类函数",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js", 
