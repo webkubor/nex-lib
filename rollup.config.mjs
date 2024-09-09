@@ -11,11 +11,19 @@ const aliases = {
 
 export default {
   input: 'index.ts',
-  output: {
-    file: 'dist/web-tools.js',
-    format: 'umd',
-    name: 'WebTools',
-  },
+  output: [
+    {
+      file: 'dist/bundle.cjs.js', // 打包后的 CommonJS 文件
+      format: 'cjs',
+      sourcemap: true
+    },
+    {
+      file: 'dist/bundle.esm.js', // 打包后的 ES module 文件
+      format: 'esm',
+      sourcemap: true
+    }
+  ],
+  external: ['dependencies'], // 这里排除外部依赖包
   plugins: [
     resolve({
         alias: aliases.resolve,
