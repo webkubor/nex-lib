@@ -1,5 +1,5 @@
 {
-  "name": "web-tools",
+  "name": "nex-lib",
   "version": "1.0.0",
   "description": "前端业务中常用的业务工具类函数",
   "main": "dist/bundle.cjs.js",
@@ -8,7 +8,8 @@
     "test": "jest",
     "login":"npm login",
     "publish":"npm publish",
-    "build": "rollup -c rollup.config.mjs"
+     "build": "rollup -c rollup.config.mjs",
+    "publish:build": "npm run build && npm publish"
   },
   "author": "webkubor",
   "license": "ISC",
