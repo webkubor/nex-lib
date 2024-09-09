@@ -1,4 +1,4 @@
-class URL {
+class WURL {
   private urlString: string;
 
   constructor(url: string) {
@@ -21,4 +21,4 @@ class URL {
   }
 }
 
-export default URL;
+export default WURL;
