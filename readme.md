@@ -22,8 +22,7 @@ import { Time } from 'nex-lib';
 import { CustomURL } from 'nex-lib';
 ```
 
-###  示例
-使用 Time 类
+###  使用 Time 类
 Time 类提供了时间格式化和时间戳转换的功能。
 
 ```js
@@ -44,7 +43,7 @@ console.log(time.getTimestamp());
 console.log(time.getTimestamp(1633072800));
 ```
 
-### 使用 CustomURL 类
+### 使用 CustomURL 类(v1.2.1)
 CustomURL 类提供了 URL 处理的功能，如获取主域名和解析查询参数。
 
 ```js
@@ -58,7 +57,7 @@ console.log(url.getMainDomain()); // 输出: example.com
 // 解析查询参数
 console.log(url.parseQueryParams()); // 输出: { name: 'value' }
 ```
-### 日志输出
+### 彩色日志输出(v1.2.1)
 
 ```js
 import { EchoUtils } from 'nex-lib';
@@ -69,7 +68,7 @@ EchoUtils.bgGreen('This is a message with a green background.');
 ```
 
 
-#### ObjectUtils 
+#### ObjectUtils (v1.2.1)
 ```js
 import ObjectUtils from 'nex-lib';
 
