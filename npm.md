@@ -4,7 +4,7 @@
 ```
 npm  login
 npm publish
-npm info web-tools
+npm info nex-lib
 ```
 
 

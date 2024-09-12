@@ -1,12 +1,27 @@
-// ObjectUtils.ts
-// 该模块包含与对象操作相关的实用工具函数。
+/**
+ * 该模块包含与对象操作相关的实用工具函数。
+ * @module ObjectUtils
+ */
 
+/**
+ * 定义任意对象的类型。
+ */
 type AnyObject = Record<string, any>;
 
+/**
+ * 包含与对象操作相关的实用工具函数。
+ */
 const ObjectUtils = {
-  // 深度合并两个对象
+  /**
+   * 深度合并两个对象。
+   * @param target 要合并的目标对象。
+   * @param source 要合并的源对象。
+   * @returns 合并后的新对象。
+   * @template T 目标对象的类型。
+   * @template S 源对象的类型。
+   */
   deepMerge<T extends AnyObject, S extends AnyObject>(target: T, source: S): T & S {
-    const output = { ...target }; // 显式创建一个新对象作为输出
+    const output: AnyObject = { ...target }; // 显式创建一个新对象作为输出
     if (Object.keys(source).length === 0) return output as T & S;
 
     // 遍历 source 对象的键
@@ -22,17 +37,45 @@ const ObjectUtils = {
     return output as T & S;
   },
 
-  // 检查两个对象是否相等（深度比较）
+  /**
+   * 检查两个对象是否相等（深度比较）。
+   * @param obj1 第一个对象。
+   * @param obj2 第二个对象。
+   * @returns 如果两个对象相等则返回 true，否则返回 false。
+   */
   deepEqual(obj1: AnyObject, obj2: AnyObject): boolean {
     return JSON.stringify(obj1) === JSON.stringify(obj2);
   },
 
-  // 获取对象的键数组
+  /**
+   * 判断目标的类型。
+   * @param target 要判断的目标。
+   * @returns 目标的类型字符串（小写）。
+   */
+  judgeTypes(target: any): string {
+    return Object.prototype.toString.call(target)
+      .replace(/^\[object\s(\w+)\]$/, '$1')
+      .toLowerCase();
+    // 或者使用 Reflect.apply (不影响功能，但稍显复杂)
+    // return Reflect.apply(Object.prototype.toString, target, [])
+    //   .replace(/^\[object\s(\w+)\]$/, '$1')
+    //   .toLowerCase();
+  },
+
+  /**
+   * 获取对象的键数组。
+   * @param obj 要获取键数组的对象。
+   * @returns 对象的键数组。
+   */
   keys(obj: AnyObject): string[] {
     return Object.keys(obj);
   },
 
-  // 获取对象的值数组
+  /**
+   * 获取对象的值数组。
+   * @param obj 要获取值数组的对象。
+   * @returns 对象的值数组。
+   */
   values(obj: AnyObject): any[] {
     return Object.values(obj);
   }

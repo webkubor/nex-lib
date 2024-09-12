@@ -43,6 +43,7 @@ console.log(time.getTimestamp());
 // 获取指定秒数的时间戳
 console.log(time.getTimestamp(1633072800));
 ```
+
 ### 使用 CustomURL 类
 CustomURL 类提供了 URL 处理的功能，如获取主域名和解析查询参数。
 
@@ -57,19 +58,30 @@ console.log(url.getMainDomain()); // 输出: example.com
 // 解析查询参数
 console.log(url.parseQueryParams()); // 输出: { name: 'value' }
 ```
+### 日志输出
 
-## 功能
+```js
+import { EchoUtils } from 'nex-lib';
+// 使用 EchoUtils 对象
+EchoUtils.red('This is a red message!');
+EchoUtils.bgGreen('This is a message with a green background.');
 
-### Time 类
-- format(seconds?: number): string: 格式化时间，传入秒数则格式化指定时间，否则格式化当前时间。
-- getTimestamp(seconds?: number): number: 获取时间戳（毫秒），传入秒数则获取指定时间的时间戳，否则获取当前时间的时间戳。
+```
 
-### CustomURL 类
-- getMainDomain(): string: 获取 URL 的主域名。
-- parseQueryParams(): Record<string, string>: 解析 URL 查询参数。
-  
-## 贡献
-如果你发现任何问题或有改进建议，请提交问题或拉取请求。我们欢迎任何形式的贡献！
 
-## 许可证
-nex-lib 遵循 MIT 许可证。有关更多详细信息，请参阅 LICENSE 文件。
+#### ObjectUtils 
+```js
+import ObjectUtils from 'nex-lib';
+
+// 使用 ObjectUtils
+const obj1 = { a: 1, b: { c: 2 } };
+const obj2 = { b: { d: 3 }, e: 4 };
+const merged = ObjectUtils.deepMerge(obj1, obj2);
+console.log(merged);
+
+// 其他使用示例
+console.log(ObjectUtils.deepEqual({ a: 1 }, { a: 1 })); // true
+console.log(ObjectUtils.keys({ a: 1, b: 2 })); // ['a', 'b']
+console.log(ObjectUtils.values({ a: 1, b: 2 })); // [1, 2]
+console.log(ObjectUtils.judgeTypes([1, 2, 3])); // 'array'
+```
