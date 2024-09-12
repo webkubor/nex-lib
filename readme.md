@@ -67,6 +67,20 @@ EchoUtils.bgGreen('This is a message with a green background.');
 
 ```
 
+#### WURL-URL 的各类解析 (v1.2.1)
+```js
+import WURL from 'nex-lib';
+
+const url = new WURL('https://example.com:8080/path?query=123');
+
+console.log(url.getMainDomain());  // 输出: example.com
+console.log(url.parseQueryParams());  // 输出: { query: '123' }
+console.log(url.isHttps());  // 输出: true
+console.log(url.getPathname());  // 输出: /path
+console.log(url.getPort());  // 输出: 8080
+```
+
+
 
 #### ObjectUtils (v1.2.1)
 ```js
@@ -84,3 +98,37 @@ console.log(ObjectUtils.keys({ a: 1, b: 2 })); // ['a', 'b']
 console.log(ObjectUtils.values({ a: 1, b: 2 })); // [1, 2]
 console.log(ObjectUtils.judgeTypes([1, 2, 3])); // 'array'
 ```
+
+
+#### ValidationUtils (v1.2.1)
+
+```ts
+import ValidationUtils from 'nex-lib';
+
+const email = 'example@example.com';
+const url = 'https://example.com';
+const phone = '12345678901';
+const date = '2024-09-12';
+const postalCode = '123456';
+const idCard = '110101199003076515';
+
+// 验证邮箱
+console.log(ValidationUtils.isValidEmail(email));  // 输出: true
+
+// 验证 URL
+console.log(ValidationUtils.isValidURL(url));  // 输出: true
+
+// 验证电话号码
+console.log(ValidationUtils.isValidPhoneNumber(phone));  // 输出: true
+
+// 验证日期字符串
+console.log(ValidationUtils.isValidDate(date));  // 输出: true
+
+// 验证邮政编码
+console.log(ValidationUtils.isValidPostalCode(postalCode));  // 输出: true
+
+// 验证身份证号码
+console.log(ValidationUtils.isValidIDCard(idCard));  // 输出: true
+
+```
+
