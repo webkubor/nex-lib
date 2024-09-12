@@ -1,12 +1,13 @@
 
 
 镜像站
-https://npmmirror.com/
+
 
 
 ## 切换镜像源
 ```
 npm config set registry https://registry.npmjs.org/
+npm config set registry https://npmmirror.com/
 ```
 ##  发布到 npm
 ```

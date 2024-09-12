@@ -60,10 +60,12 @@ console.log(url.parseQueryParams()); // 输出: { name: 'value' }
 ### 彩色日志输出(v1.2.1)
 
 ```js
-import { EchoUtils } from 'nex-lib';
-// 使用 EchoUtils 对象
+import {EchoUtils} from 'nex-lib';
 EchoUtils.red('This is a red message!');
 EchoUtils.bgGreen('This is a message with a green background.');
+EchoUtils.red(`output->111111`)
+EchoUtils.blue(`output->111111`)
+EchoUtils.yellow(`output->111111`)
 
 ```
 

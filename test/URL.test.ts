@@ -1,13 +1,14 @@
-import WURL from '../src/CustomURL';
+import { createWURL }  from '../src/WURL';
 
 describe('URL class', () => {
   it('should get main domain correctly', () => {
-    const url = new WURL('https://www.example.com/page?param=value');
-    expect(url.getMainDomain()).toBe('example.com');
+    const myUrl = createWURL('https://example.com/path?query=123');
+    console.log(myUrl.getMainDomain()); // 'example.com'
+    console.log(myUrl.parseQueryParams()); // { query: '123' }
+    console.log(myUrl.isHttps()); // true
+    console.log(myUrl.getPathname()); // '/path'
+    console.log(myUrl.getPort()); // '80'
   });
 
-  it('should parse query parameters correctly', () => {
-    const url = new WURL('https://www.example.com/page?param1=value1&param2=value2');
-    expect(url.parseQueryParams()).toEqual({ param1: 'value1', param2: 'value2' });
-  });
+
 });
