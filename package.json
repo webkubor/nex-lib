@@ -16,9 +16,10 @@
   "keywords": [
     "webkubor",
     "nex-lib",
-    "tools",
-    "url",
-    "utils"
+    "EchoUtils",
+    "CustomURL",
+    "ObjectUtils",
+    "Time"
   ],
   "devDependencies": {
     "@rollup/plugin-commonjs": "^26.0.1",
