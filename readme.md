@@ -44,5 +44,5 @@ console.log(time.getTimestamp(1633072800));
 
 ```
 
-[线上地址:https://github.com/webkubor/nex-lib](https://github.com/webkubor/nex-lib)
+[线上地址:https://webkubor.github.io/nex-lib/](https://webkubor.github.io/nex-lib/)
 
