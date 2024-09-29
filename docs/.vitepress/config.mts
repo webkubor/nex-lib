@@ -3,11 +3,11 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   base:  '/nex-lib/',
-  title: "nexLib",
-  description: "前端业务中常用的业务工具库",
+  title: "Nex Lib",
+  description: 'Next Frontend Tooling',
   ignoreDeadLinks: true,
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/nex-lib/logo.svg' }],
   ],
   themeConfig: {
     logo: '/logo.svg',
@@ -26,7 +26,8 @@ export default defineConfig({
       {
         text: '入门',
         items: [
-          { text: '简介', link: '/introduce' },
+          { text: '简介', link: '/guide/' },
+          { text: '为什么选择 NexLib', link: '/guide/why' },
         ]
       }
     ],

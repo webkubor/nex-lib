@@ -3,25 +3,31 @@
 layout: home
 
 hero:
-  name: "nex-lib教程"
-  text: "最懂前端的工具库"
-  tagline: 打造全网最优,最全工具库
+  name: "Nex Lib"
+  text: Next Frontend Tooling
+  tagline: 打造全网最优,最全工具库,最懂前端的工具库
+  image:
+    src: /lib-show.png
+    alt: Nex-lib
   actions:
     - theme: brand
-      text: 快速入门🏃‍♂️
-      link: /introduce
+      text: Get Started
+      link: /guide/
     - theme: alt
-      text:  rules 指令 📜
-      link: /introduce
+      text: Why Nex Lib?
+      link: /guide/why
     - theme: alt
-      text:  最新特性指令🌟
-      link: /introduce
+      text: View on GitHub
+      link: https://github.com/webkubor/nex-lib
 
 features:
-  - title: prompt 的构成  💻
-    details: 关于 prompt 的写法和组合
-  - title: 图片快捷指令   📷
-    details: 在 midjourney 中经常使用的快捷指令
-  - title:  创作思路  💡
-    details: 关于创作的思路
+  - icon: 💡
+    title: Lightning Fast HMR
+    details: Hot Module Replacement (HMR) that stays fast regardless of app size.
+  - icon: 🛠️
+    title: Rich Features
+    details: Out-of-the-box support for TypeScript, JSX, CSS and more.
+  - icon: 🔑
+    title: Fully Typed APIs
+    details: Flexible programmatic APIs with full TypeScript typing.
 ---
