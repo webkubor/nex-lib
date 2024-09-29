@@ -62,6 +62,38 @@ const ObjectUtils = {
     //   .toLowerCase();
   },
 
+
+  /**
+ * @name: 按照条件过滤tree结构菜单
+ * @param {Object} tree
+ * @param {Function} func
+ * @return {*}
+ */
+  treeFilter(tree: Object[], func: Function) {
+    return tree
+      .map((node) => ({ ...node }))
+      .filter((node: any) => {
+        node.children = node.children && this.treeFilter(node.children, func);
+        return func(node) || node?.children?.length;
+      });
+  },
+
+
+
+   filterAndRecurse: (arr, predicate) => {
+    let that = ObjectUtils;
+    return arr.reduce((acc, item) => {
+      if (predicate(item)) {
+        const newItem = {...item };
+        if (newItem.children && newItem.children.length) {
+          newItem.children = that.filterAndRecurse(newItem.children, predicate);
+        }
+        acc.push(newItem);
+      }
+      return acc;
+    }, []);
+  },
+
   /**
    * 获取对象的键数组。
    * @param obj 要获取键数组的对象。
