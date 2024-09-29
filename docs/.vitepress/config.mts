@@ -3,13 +3,14 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   base:  '/nex-lib/',
-  title: " nex-lib Docs",
+  title: "nexLib",
   description: "前端业务中常用的业务工具库",
   ignoreDeadLinks: true,
   head: [
-    ["link", { rel: "icon", href: "/favicon.ico" }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
   ],
   themeConfig: {
+    logo: '/logo.svg',
     search: {
       provider: "local",
     },
