@@ -50,7 +50,7 @@ const ObjectUtils = {
   /**
    * 判断目标的类型。
    * @param target 要判断的目标。
-   * @returns 目标的类型字符串（小写）。
+   * @returns 目标的类型字符串string,number,boolean,object,function,date,regexp,error,null,undefined。
    */
   judgeTypes(target: any): string {
     return Object.prototype.toString.call(target)

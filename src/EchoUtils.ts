@@ -1,12 +1,14 @@
 // src/EchoUtils.ts
 
+import ObjectUtils from './ObjectUtils';
+
 /**
- * 输出带有颜色的日志消息到控制台。
- * @param text 要输出的文本。
+ * 通过转义序列输出带有颜色的日志消息到控制台。
+ * @param texts 要输出的文本，可以是多个参数。
  * @param color 使用的颜色类型。
  * @throws 如果颜色无效，则抛出错误。
  */
-function colorLog(text: string, color: string): void {
+function colorLog(color: string, ...texts: (string | number)[]): void {
   const colors: { [key: string]: string } = {
       'reset': '\x1b[0m',
       'bright': '\x1b[1m',
@@ -36,151 +38,42 @@ function colorLog(text: string, color: string): void {
   if (!colors[color]) {
       throw new Error(`Invalid color: ${color}`);
   }
-
-  console.log(`${colors[color]}${text}${colors['reset']}`);
+  let output = '';
+  for (const text of texts) {
+      output += typeof text === 'number'? text.toString() : text;
+      output += ' ';
+  }
+  // console.log(`${colors[color]}${texts.join(' ')}${colors['reset']}`);
+  console.log(`${colors[color]}${output.trim()}${colors['reset']}`);
 }
 
 /**
 * 提供带有不同颜色和样式的日志输出方法。
 */
 const EchoUtils = {
-  /**
-   * 输出重置颜色的日志。
-   * @param text 要输出的文本。
-   */
-  reset: (text: string) => colorLog(text, 'reset'),
-
-  /**
-   * 输出亮色日志。
-   * @param text 要输出的文本。
-   */
-  bright: (text: string) => colorLog(text, 'bright'),
-
-  /**
-   * 输出暗色日志。
-   * @param text 要输出的文本。
-   */
-  dim: (text: string) => colorLog(text, 'dim'),
-
-  /**
-   * 输出下划线日志。
-   * @param text 要输出的文本。
-   */
-  underscore: (text: string) => colorLog(text, 'underscore'),
-
-  /**
-   * 输出闪烁日志。
-   * @param text 要输出的文本。
-   */
-  blink: (text: string) => colorLog(text, 'blink'),
-
-  /**
-   * 输出反转颜色日志。
-   * @param text 要输出的文本。
-   */
-  reverse: (text: string) => colorLog(text, 'reverse'),
-
-  /**
-   * 输出隐藏日志。
-   * @param text 要输出的文本。
-   */
-  hidden: (text: string) => colorLog(text, 'hidden'),
-
-  /**
-   * 输出黑色日志。
-   * @param text 要输出的文本。
-   */
-  black: (text: string) => colorLog(text, 'black'),
-
-  /**
-   * 输出红色日志。
-   * @param text 要输出的文本。
-   */
-  red: (text: string) => colorLog(text, 'red'),
-
-  /**
-   * 输出绿色日志。
-   * @param text 要输出的文本。
-   */
-  green: (text: string) => colorLog(text, 'green'),
-
-  /**
-   * 输出黄色日志。
-   * @param text 要输出的文本。
-   */
-  yellow: (text: string) => colorLog(text, 'yellow'),
-
-  /**
-   * 输出蓝色日志。
-   * @param text 要输出的文本。
-   */
-  blue: (text: string) => colorLog(text, 'blue'),
-
-  /**
-   * 输出品红色日志。
-   * @param text 要输出的文本。
-   */
-  magenta: (text: string) => colorLog(text, 'magenta'),
-
-  /**
-   * 输出青色日志。
-   * @param text 要输出的文本。
-   */
-  cyan: (text: string) => colorLog(text, 'cyan'),
-
-  /**
-   * 输出白色日志。
-   * @param text 要输出的文本。
-   */
-  white: (text: string) => colorLog(text, 'white'),
-
-  /**
-   * 输出黑色背景日志。
-   * @param text 要输出的文本。
-   */
-  bgBlack: (text: string) => colorLog(text, 'bgBlack'),
-
-  /**
-   * 输出红色背景日志。
-   * @param text 要输出的文本。
-   */
-  bgRed: (text: string) => colorLog(text, 'bgRed'),
-
-  /**
-   * 输出绿色背景日志。
-   * @param text 要输出的文本。
-   */
-  bgGreen: (text: string) => colorLog(text, 'bgGreen'),
-
-  /**
-   * 输出黄色背景日志。
-   * @param text 要输出的文本。
-   */
-  bgYellow: (text: string) => colorLog(text, 'bgYellow'),
-
-  /**
-   * 输出蓝色背景日志。
-   * @param text 要输出的文本。
-   */
-  bgBlue: (text: string) => colorLog(text, 'bgBlue'),
-
-  /**
-   * 输出品红色背景日志。
-   * @param text 要输出的文本。
-   */
-  bgMagenta: (text: string) => colorLog(text, 'bgMagenta'),
-
-  /**
-   * 输出青色背景日志。
-   * @param text 要输出的文本。
-   */
-  bgCyan: (text: string) => colorLog(text, 'bgCyan'),
-
-  /**
-   * 输出白色背景日志。
-   * @param text 要输出的文本。
-   */
-  bgWhite: (text: string) => colorLog(text, 'bgWhite')
+  reset: (...texts:  (string | number)[]) => colorLog('reset', ...texts),
+  bright: (...texts:  (string | number)[]) => colorLog('bright', ...texts),
+  dim: (...texts:  (string | number)[]) => colorLog('dim', ...texts),
+  underscore: (...texts:  (string | number)[]) => colorLog('underscore', ...texts),
+  blink: (...texts:  (string | number)[]) => colorLog('blink', ...texts),
+  reverse: (...texts:  (string | number)[]) => colorLog('reverse', ...texts),
+  hidden: (...texts:  (string | number)[]) => colorLog('hidden', ...texts),
+  black: (...texts:  (string | number)[]) => colorLog('black', ...texts),
+  red: (...texts:  (string | number)[]) => colorLog('red', ...texts),
+  green: (...texts:  (string | number)[]) => colorLog('green', ...texts),
+  yellow: (...texts:  (string | number)[]) => colorLog('yellow', ...texts),
+  blue: (...texts:  (string | number)[]) => colorLog('blue', ...texts),
+  magenta: (...texts:  (string | number)[]) => colorLog('magenta', ...texts),
+  cyan: (...texts:  (string | number)[]) => colorLog('cyan', ...texts),
+  white: (...texts:  (string | number)[]) => colorLog('white', ...texts),
+  bgBlack: (...texts:  (string | number)[]) => colorLog('bgBlack', ...texts),
+  bgRed: (...texts:  (string | number)[]) => colorLog('bgRed', ...texts),
+  bgGreen: (...texts:  (string | number)[]) => colorLog('bgGreen', ...texts),
+  bgYellow: (...texts:  (string | number)[]) => colorLog('bgYellow', ...texts),
+  bgBlue: (...texts:  (string | number)[]) => colorLog('bgBlue', ...texts),
+  bgMagenta: (...texts:  (string | number)[]) => colorLog('bgMagenta', ...texts),
+  bgCyan: (...texts:  (string | number)[]) => colorLog('bgCyan', ...texts),
+  bgWhite: (...texts:  (string | number)[]) => colorLog('bgWhite', ...texts)
 };
 
 export default EchoUtils;
