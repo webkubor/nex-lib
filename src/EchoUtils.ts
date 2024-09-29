@@ -61,20 +61,28 @@ const colorMap: { [key in ColorType]: string } = {
   creamWhite: '\x1b[38;5;255m', // 奶白色 ANSI 代码示例，可能需要根据实际情况调整
 };
 
-function colorLog(color: ColorType,...texts: (string | number)[]): void {
+function colorLog(color: ColorType,...texts: (string | number| object| boolean)[]): void {
   if (!colorMap[color]) {
     throw new Error(`Invalid color: ${color}`);
   }
   let output = '';
   for (const text of texts) {
-    output += typeof text === 'number'? text.toString() : text;
+    if(ObjectUtils.judgeTypes(text) === 'number') {
+      output += text.toString();
+    } else if (ObjectUtils.judgeTypes(text) ==='object') {
+      output += JSON.stringify(text, null, 2);
+    } else if (ObjectUtils.judgeTypes(text) ==='boolean') {
+      output += text.toString();
+    } else {
+      output += text;
+    }
     output += ' ';
   }
   console.log(`${colorMap[color]}${output.trim()}${colorMap['reset']}`);
 }
 
 const EchoUtils = Object.fromEntries(
-  Object.keys(colorMap).map((color) => [color, (...texts: (string | number)[]) => colorLog(color as ColorType,...texts)])
+  Object.keys(colorMap).map((color) => [color, (...texts: (string | number| object| boolean)[]) => colorLog(color as ColorType,...texts)])
 );
 
 export default EchoUtils;

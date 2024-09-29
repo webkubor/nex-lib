@@ -40,6 +40,23 @@ export function createWURL(urlString: string) {
     },
 
     /**
+     * 将指定的参数添加到 URL 的查询字符串中
+     * @param url - 要添加参数的 URL
+     * @param params - 要添加的参数对象
+     * @returns 添加了参数的 URL 字符串
+     */
+    addParamsToURL(params) {
+      let urlObj = url;
+      console.log(`output->`,JSON.stringify(urlObj))
+      for (const key in params) {
+        if (params.hasOwnProperty(key)) {
+          urlObj.searchParams.append(key, params[key]);
+        }
+      }
+      return urlObj.toString();
+    },
+
+    /**
      * @method isHttps
      * @description 检查当前 URL 是否使用 HTTPS 协议
      * @returns {boolean} 如果是 HTTPS，返回 true，否则返回 false
